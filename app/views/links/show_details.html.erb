@@ -1,0 +1,10 @@
+<% base_url = Rails.application.config.base_url %>
+
+<a href=<%= base_url + "/" + @link.short_code %> class="no-underline hover:underline text-2xl font-semibold">
+    <%= base_url + "/" + @link.short_code %>
+</a>
+
+<a href=<%= @link.original_url %> class="no-underline hover:underline text-lg" target="_blank">
+<%= @link.original_url %>
+</a>
+<%= line_chart @link.views.group_by_day(:created_at, range: 2.weeks.ago..Time.now, expand_range: true).count %>

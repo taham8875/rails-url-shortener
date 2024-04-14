@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
+  has_many :views, dependent: :destroy
+
   before_create :generate_short_code
 
   scope :recent_first, -> { order(created_at: :desc) }

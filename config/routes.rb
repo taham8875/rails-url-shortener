@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :links
+  resources :links, only: :index
   root "links#index"
 
+  get "/links/:short_code", to: "links#show_details"
   get "/:short_code", to: "links#show"
 end

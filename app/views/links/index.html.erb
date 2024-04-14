@@ -2,7 +2,7 @@
 
 <%= form_with model: Link.new do |form| %>
   <div class="flex gap-2 items-stretch">
-    <%= form.url_field :original_url, placeholder: "https://www.example.org", required: true, class: "rounded flex-1" %>
+    <%= form.url_field :original_url, placeholder: "https://www.example.org", required: true, autofocus: true, class: "rounded flex-1" %>
     <%= form.button "Shorten", class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-200" %>
   </div>
 <% end %>
