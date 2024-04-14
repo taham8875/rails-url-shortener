@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :links
   root "links#index"
+
+  get "/:short_code", to: "links#show"
 end

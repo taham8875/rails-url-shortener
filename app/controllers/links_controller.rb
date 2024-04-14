@@ -1,6 +1,12 @@
 class LinksController < ApplicationController
+  before_action :set_link, only: :show
+
   def index
     @links = Link.recent_first
+  end
+
+  def show
+    redirect_to @link.original_url, allow_other_host: true
   end
 
   def create
@@ -17,5 +23,9 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:original_url)
+  end
+
+  def set_link
+    @link = Link.where(short_code: params[:short_code]).first
   end
 end

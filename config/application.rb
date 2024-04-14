@@ -23,5 +23,7 @@ module RailsUrlShortener
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.base_url = ENV.fetch("BASE_URL", "http://localhost:3000")
   end
 end

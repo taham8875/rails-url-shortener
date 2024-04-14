@@ -1,7 +1,12 @@
+<% base_url = Rails.application.config.base_url %>
+
 <%= tag.div id: dom_id(link) do %>
-    <div class="flex items-center gap-2">
-        <a href="<%= link.original_url %>" class="text-blue-500 underline" target="_blank">
+    <a href="<%= base_url + "/" + link.short_code %>" class="no-underline flex flex-col gap-2 border border-blue-950 rounded my-5 p-3 hover:bg-gray-100 transition" target="_blank">
+        <span class="text-blue-600 font-semibold">
+            <%= base_url + "/" + link.short_code %>
+        </span>
+        <span  class="hover:underline transition">
             <%= link.original_url %>
-        </a>
-    </div>
+        </span>
+    </a>
 <% end %>
