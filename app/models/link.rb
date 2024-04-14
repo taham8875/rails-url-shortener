@@ -10,6 +10,10 @@ class Link < ApplicationRecord
   private
 
   def generate_short_code
-    self.short_code = SecureRandom.alphanumeric(8)
+    short_code = SecureRandom.alphanumeric(8)
+    while Link.exists?(short_code: short_code)
+      short_code = SecureRandom.alphanumeric(8)
+    end
+    self.short_code = short_code
   end
 end
