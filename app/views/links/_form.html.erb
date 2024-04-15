@@ -1,0 +1,6 @@
+<%= form_with model: link, url: link_path(link.short_code), method: :patch do |form| %>
+  <div class="flex gap-2 items-center">
+    <%= form.url_field :original_url, required: true, autofocus: true, placeholder: "https://example.org", class: "rounded flex-1" %>
+    <%= form.button "Save", class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-200" %>
+  </div>
+<% end %>

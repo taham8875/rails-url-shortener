@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :links, only: [:index, :create]
-  root "links#index"
-
+  get "/links", to: "links#index"
+  post "/links", to: "links#create"
   get "/links/:short_code", to: "links#show_details"
+  get "/links/:short_code/edit", to: "links#edit", as: "edit_link"
+  patch "/links/:short_code", to: "links#update"
+  delete "/links/:short_code", to: "links#destroy", as: "link"
   get "/:short_code", to: "links#show"
+
+  root "links#index"
 end

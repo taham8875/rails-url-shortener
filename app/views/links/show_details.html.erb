@@ -1,10 +1,17 @@
 <% base_url = Rails.application.config.base_url %>
 
-<a href=<%= base_url + "/" + @link.short_code %> class="no-underline hover:underline text-2xl font-semibold">
+<a href=<%= base_url + "/" + @link.short_code %> class="block no-underline hover:underline text-2xl font-semibold" target="_blank">
     <%= base_url + "/" + @link.short_code %>
 </a>
 
-<a href=<%= @link.original_url %> class="no-underline hover:underline text-lg" target="_blank">
+<a href=<%= @link.original_url %> class="block no-underline hover:underline text-lg" target="_blank">
 <%= @link.original_url %>
 </a>
+
+<div class="flex justify-end gap-2 items-center mt-5 ms-auto">
+<%= link_to "Edit", edit_link_path(@link.short_code), class: "no-underline py-2 px-3 text-white bg-blue-400 rounded" %>
+
+<%= button_to "Delete", link_path(@link.short_code), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "no-underline py-2 px-3 text-white bg-red-500 rounded" %>
+</div>
+
 <%= line_chart @link.views.group_by_day(:created_at, range: 2.weeks.ago..Time.now, expand_range: true).count %>
