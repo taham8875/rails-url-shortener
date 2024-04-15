@@ -1,5 +1,7 @@
 <% base_url = Rails.application.config.base_url %>
 
+<%= link_to "← Back to Links", root_path, class: "block w-fit no-underline py-2 px-3 mb-4 text-sm bg-gray-200 hover:bg-gray-400 rounded transition" %>
+
 <a href=<%= base_url + "/" + @link.short_code %> class="block no-underline hover:underline text-2xl font-semibold" target="_blank">
     <%= base_url + "/" + @link.short_code %>
 </a>
