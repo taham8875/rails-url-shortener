@@ -1,6 +1,11 @@
 <% base_url = Rails.application.config.base_url %>
 
-<%= link_to "← Back to Links", root_path, class: "block w-fit no-underline py-2 px-3 mb-4 text-sm bg-gray-200 hover:bg-gray-400 rounded transition" %>
+<div class="flex justify-between items-center mb-4">
+    <%= link_to "← Back to Links", root_path, class: "block w-fit no-underline py-2 px-3 text-sm bg-gray-200 hover:bg-gray-400 rounded transition" %>
+    <span class="text-sm bg-gray-200 text-gray-600 px-2 py-1 rounded">
+        <%= @link.views.count %> views
+    </span>
+</div>
 
 <a href=<%= base_url + "/" + @link.short_code %> class="block no-underline hover:underline text-2xl font-semibold" target="_blank">
     <%= base_url + "/" + @link.short_code %>
