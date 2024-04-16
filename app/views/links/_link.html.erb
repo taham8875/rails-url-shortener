@@ -1,8 +1,9 @@
 <% base_url = Rails.application.config.base_url %>
 
 <%= tag.div id: dom_id(link) do %>
-    <div class="flex items-center justify-between border border-blue-950 rounded my-5 p-3 hover:bg-gray-100 transition">
-        <div class="flex flex-col items-start gap-2">
+    <div class="flex items-center border border-blue-950 rounded my-5 p-3 hover:bg-gray-100 transition">
+    <%= favicon_image_tag link.domain, class: "me-3 rounded-full" %>
+        <div class="flex flex-col items-start gap-2 flex-1">
             <a href="<%= base_url + "/" + link.short_code %>" class="no-underline hover:underline transition text-blue-600 font-semibold" target="_blank">
                 <%= base_url + "/" + link.short_code %>
             </a>

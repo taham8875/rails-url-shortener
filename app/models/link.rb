@@ -7,6 +7,10 @@ class Link < ApplicationRecord
 
   validates :original_url, presence: true
 
+  def domain
+    URI.parse(original_url).host rescue URI::InvalidURIError
+  end
+
   private
 
   def generate_short_code
