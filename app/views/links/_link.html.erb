@@ -1,6 +1,7 @@
 <% base_url = Rails.application.config.base_url %>
 
 <%= tag.div id: dom_id(link) do %>
+    <%= turbo_stream_from link %>
     <div class="flex items-center border border-blue-950 rounded my-5 p-3 hover:bg-gray-100 transition">
     <%= favicon_image_tag link.domain, class: "me-3 rounded-full" %>
         <div class="flex flex-col items-start gap-2 flex-1">
