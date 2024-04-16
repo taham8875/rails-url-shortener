@@ -7,6 +7,10 @@ class Link < ApplicationRecord
 
   validates :original_url, presence: true
 
+  after_save_commit if: :original_url_previously_changed? do
+    MetadataJob.perform_later(short_code)
+  end
+
   def domain
     URI.parse(original_url).host rescue URI::InvalidURIError
   end
