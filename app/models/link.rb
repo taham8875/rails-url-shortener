@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
+  belongs_to :user, optional: true
+
   has_many :views, dependent: :destroy
 
   before_create :generate_short_code
@@ -11,8 +13,19 @@ class Link < ApplicationRecord
     MetadataJob.perform_later(short_code)
   end
 
+  def to_param
+    short_code
+  end
+
   def domain
     URI.parse(original_url).host rescue URI::InvalidURIError
+  end
+
+  def editable_by?(user)
+    # if there are no user_id, then return false
+    return false unless user_id?
+    # if the user_id is the same as the user's id, then return true
+    user_id == user&.id
   end
 
   private

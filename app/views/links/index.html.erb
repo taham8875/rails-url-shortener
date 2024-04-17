@@ -1,5 +1,3 @@
-<h1>URL Shortener</h1>
-
 <%= form_with model: Link.new do |form| %>
   <div class="flex gap-2 items-stretch">
     <%= form.url_field :original_url, placeholder: "https://www.example.org", required: true, autofocus: true, class: "rounded flex-1" %>
