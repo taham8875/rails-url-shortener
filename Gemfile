@@ -76,3 +76,11 @@ gem "chartkick", "~> 5.0"
 gem "groupdate", "~> 6.4"
 
 gem "devise", "~> 4.9"
+
+gem "activeadmin"
+
+# Plus integrations with:
+gem "cancancan"
+gem "draper"
+gem "pundit"
+gem "sassc-rails"
